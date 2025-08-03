@@ -1,13 +1,14 @@
 # Goal: Write a Brownian Bridge Construction.
 set.seed(1)
-num_indices = 5
+n = 10000
+num_indices = 100
 
-time_indices = sort(sample(1:10000, num_indices, replace = F))
+time_indices = sort(sample(1:n, num_indices, replace = F))
 time_indices = c(0, time_indices)
 
-W = rep(0, num_indices+1)
+W = rep(0, n+1)
 
-stopifnot(length(W) == length(time_indices))
+stopifnot(length(W) == length(0:n))
 t_n = length(W)
 
 W[t_n] = rnorm(1, 0, sd=sqrt(time_indices[t_n]))
